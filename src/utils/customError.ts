@@ -7,25 +7,21 @@ export class AppError extends Error {
   }
 }
 
-class NotFoundError extends AppError {
+export class NotFoundError extends AppError {
   constructor(message: string = "Not Found") {
     super(message, 404);
   }
 }
 
-class ValidationError extends AppError {
+export class ValidationError extends AppError {
   constructor(message: string = "Validation Error") {
     super(message, 400);
   }
 }
-class UnauthorizedError extends AppError {
+export class UnauthorizedError extends AppError {
   constructor(message: string = "Unauthorized Access") {
     super(message, 401);
   }
 }
 
-export const CustomError = {
-  NotFoundError,
-  ValidationError,
-  UnauthorizedError,
-};
+
