@@ -4,10 +4,10 @@ export const connectDB = async () => {
   try {
     const uri = process.env.MONGODB_URI as string;
     if (!uri) {
-      throw new Error('MONGODB_URI is not defined in .env');
+      throw new Error('MONGODB_URI is not defined in .env File');
     }
     await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
+      serverSelectionTimeoutMS: 5000, 
     });
     console.log('Database Connection Successful!');
   } catch (error: any) {
