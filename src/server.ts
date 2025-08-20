@@ -1,11 +1,11 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 
-import authRoutes from './routes/authRoutes';
-import { connectDB } from '../src/config/databaseConnection';
-import { globalErrorHandler } from '../src/middlewares/error';
-import { courseRouter } from '../src/routes/courseRoutes';
-
+import authRoutes from "./routes/authRoutes";
+import { connectDB } from "../src/config/databaseConnection";
+import { globalErrorHandler } from "../src/middlewares/error";
+import { courseRouter } from "../src/routes/courseRoutes";
+import { moduleRouters } from "../src/routes/moduleRoutes";
 
 export const createServer = async () => {
   const app = express();
@@ -13,12 +13,12 @@ export const createServer = async () => {
   // Middleware
   app.use(cors());
   app.use(express.json());
-  app.use('/uploads', express.static('src/uploads'));
+  app.use("/uploads", express.static("src/uploads"));
 
   // Routes
-  app.use('/api/auth', authRoutes);
-  app.use('/api/course',courseRouter)
-
+  app.use("/api/auth", authRoutes);
+  app.use("/api/course", courseRouter);
+  app.use("/api/module", moduleRouters);
   // Error Handler
   app.use(globalErrorHandler);
 
